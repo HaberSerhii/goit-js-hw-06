@@ -27,7 +27,10 @@ const ingredients = [
 
 const ingredientsList = document.querySelector("#ingredients");
 
-const listItems = ingredients.map(
-  (ingredient) => `<li class="item">${ingredient}</li>`
-);
-ingredientsList.innerHTML = listItems.join("");
+const ingredientsArr = ingredients.map((ingredient) => {
+  const li = document.createElement("li");
+  li.classList.add("ingredient");
+  li.append(ingredient);
+  return li;
+});
+ingredientsList.append(...ingredientsArr);
